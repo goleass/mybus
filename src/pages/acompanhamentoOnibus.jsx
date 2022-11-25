@@ -16,7 +16,7 @@ function AcompanhamentoOnibus() {
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyAGN6OLBqCGf3wnrUfTwm6pEz8JDhz9ptY"
+    googleMapsApiKey: import.meta.env.VITE_API_KEY
   })
 
   const buscaCoordenadasOnibus = async () => {
