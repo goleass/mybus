@@ -41,6 +41,7 @@ function AcompanhamentoOnibus() {
         mapContainerStyle={{ width: '100%', height: '100%' }}
         center={myLocation}
         zoom={15}
+        streetView={false}
       >
         { /* Child components, such as markers, info windows, etc. */}
         <Marker position={myLocation}/>
