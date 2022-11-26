@@ -12,6 +12,15 @@ function Home() {
     localStorage.setItem("coords",JSON.stringify(coords));
   }, [coords])
 
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      setCoords({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      })
+    });
+  }, [])
+
   return (
     <Container sx={{ height: '100%' }}>
       <Box
