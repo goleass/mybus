@@ -36,8 +36,12 @@ function Home() {
           onClick={() => navigate(`/paradas-proximas?latitude=${coords.latitude}&longitude=${coords.longitude}`)} 
           sx={{ width: '250px' }} 
           variant="contained">Paradas proximas</Button>
-        <TextField id="outlined-basic" label="Longitude" variant="outlined" size="small" onChange={(e) => setCoords({...coords, longitude: e.target.value})}/>
-        <TextField id="outlined-basic" label="Latitude" variant="outlined" size="small" onChange={(e) => setCoords({...coords, latitude: e.target.value})}/>
+        <TextField id="outlined-basic" 
+          value={coords.longitude}
+          label="Longitude" variant="outlined" size="small" onChange={(e) => setCoords({...coords, longitude: e.target.value})}/>
+        <TextField id="outlined-basic" 
+          value={coords.latitude}
+          label="Latitude" variant="outlined" size="small" onChange={(e) => setCoords({...coords, latitude: e.target.value})}/>
       </Box>
     </Container>
   )
