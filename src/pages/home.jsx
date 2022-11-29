@@ -26,7 +26,7 @@ function Home() {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'column-reverse',
+          flexDirection: 'column',
           alignItems: 'center',
           justifyItems: 'center',
           gap: 1
@@ -36,12 +36,16 @@ function Home() {
           onClick={() => navigate(`/paradas-proximas?latitude=${coords.latitude}&longitude=${coords.longitude}`)} 
           sx={{ width: '250px' }} 
           variant="contained">Paradas proximas</Button>
-        <TextField id="outlined-basic" 
+        <Button 
+          onClick={() => navigate("/minhas-paradas")} 
+          sx={{ width: '250px' }} 
+          variant="contained">Minhas paradas</Button>
+        {/* <TextField id="outlined-basic" 
           value={coords.longitude}
           label="Longitude" variant="outlined" size="small" onChange={(e) => setCoords({...coords, longitude: e.target.value})}/>
         <TextField id="outlined-basic" 
           value={coords.latitude}
-          label="Latitude" variant="outlined" size="small" onChange={(e) => setCoords({...coords, latitude: e.target.value})}/>
+          label="Latitude" variant="outlined" size="small" onChange={(e) => setCoords({...coords, latitude: e.target.value})}/> */}
       </Box>
     </Container>
   )
