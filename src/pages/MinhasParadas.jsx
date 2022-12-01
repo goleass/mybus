@@ -27,7 +27,7 @@ const MinhasParadas = () => {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'column-reverse',
+          flexDirection: 'column',
           alignItems: 'center',
           justifyItems: 'center',
           gap: 1

@@ -28,7 +28,7 @@ function PrevisoesParada() {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'column-reverse',
+          flexDirection: 'column',
           alignItems: 'center',
           justifyItems: 'center',
           gap: 1
@@ -36,7 +36,7 @@ function PrevisoesParada() {
       >
 
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+          <Table size="small" aria-label="a dense table">
             <TableBody>
               {previsoes.map((row) => (
                 <TableRow
