@@ -35,13 +35,18 @@ function AcompanhamentoOnibus() {
     buscaCoordenadasOnibus()
   }, [])
 
-  return <div style={{ height: '100vh' }}>
+  return <div>
     {isLoaded ? (
       <GoogleMap
-        mapContainerStyle={{ width: '100%', height: '100%' }}
+        mapContainerStyle={{ width: '100vw', height: '100vh' }}
         center={myLocation}
         zoom={15}
-        streetView={false}
+        options={{
+          streetViewControl: false,
+          controlSize: false,
+          fullscreenControl: false,
+          mapTypeControl: false
+        }}
       >
         { /* Child components, such as markers, info windows, etc. */}
         <Marker position={myLocation}/>
