@@ -73,14 +73,14 @@ function AcompanhamentoOnibus() {
           }} />
         ))}
 
-        {coordenadasParadas.map(coords => (
+        {/* {coordenadasParadas.map(coords => (
           <Marker position={coords} icon={{
             url: myBusStop,
             scaledSize: new google.maps.Size(40, 20), // scaled size
             origin: new google.maps.Point(0, 0), // origin
             anchor: new google.maps.Point(0, 10) // anchor
           }} />
-        ))}
+        ))} */}
 
         <Polyline
           options={{
