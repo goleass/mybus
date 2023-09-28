@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
-import { Box, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
+import { Box, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar } from "@mui/material"
 
 function PrevisoesParada() {
 
@@ -34,7 +34,7 @@ function PrevisoesParada() {
           gap: 1
         }}
       >
-
+        <Toolbar />
         <TableContainer component={Paper}>
           <Table size="small" aria-label="a dense table">
             <TableBody>

@@ -1,4 +1,4 @@
-import { Box, Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
+import { Box, Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar } from "@mui/material"
 import { useEffect, useState } from "react";
 import axios from "axios"
 import { useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
@@ -14,11 +14,31 @@ function ParadasProximas() {
 
   const [paradas, setParadas] = useState([])
   const [favorites, setFavorites] = useState([])
+  const [coords, setCoords] = useState({ latitude: -29.923990, longitude: -51.170316 })
+
+  useEffect(() => {
+    localStorage.setItem("coords",JSON.stringify(coords));
+  }, [coords])
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      });
+      setCoords({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      })
+    });
+
+    buscarParadasProximas()
+  }, [])
 
   const buscarParadasProximas = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_BUS_API}/paradas-proximas?latitude=${query.get('latitude')}&longitude=${query.get('longitude')}
+        `${import.meta.env.VITE_BUS_API}/paradas-proximas?latitude=${coords.latitude}&longitude=${coords.longitude}
       `)
 
       setParadas(data.map(d => ({ name: d.desc, cod: d.cod })))
@@ -51,16 +71,16 @@ function ParadasProximas() {
     }
   }
 
-  useEffect(() => {
-    const favoritesLS = localStorage.getItem("favorites");
+  // useEffect(() => {
+  //   const favoritesLS = localStorage.getItem("favorites");
 
-    const myFavorites = JSON.parse(favoritesLS)
+  //   const myFavorites = JSON.parse(favoritesLS)
 
-    if (myFavorites && myFavorites.length > 0)
-      setFavorites(myFavorites)
+  //   if (myFavorites && myFavorites.length > 0)
+  //     setFavorites(myFavorites)
 
-    buscarParadasProximas()
-  }, []);
+  //   buscarParadasProximas()
+  // }, []);
 
   return (
     <Container>
@@ -73,6 +93,7 @@ function ParadasProximas() {
           gap: 1
         }}
       >
+        <Toolbar />
         <TableContainer component={Paper}>
           <Table size="small" aria-label="a dense table">
             <TableBody>

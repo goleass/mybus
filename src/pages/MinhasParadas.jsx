@@ -1,4 +1,4 @@
-import { Box, Container, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material"
+import { Box, Container, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Toolbar } from "@mui/material"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -33,6 +33,7 @@ const MinhasParadas = () => {
           gap: 1
         }}
       >
+        <Toolbar />
         <TableContainer component={Paper}>
           <Table size="small" aria-label="a dense table">
             <TableBody>
